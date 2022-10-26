@@ -19,10 +19,9 @@ function App(props: AppProps) {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Head>
-        {/** Load font styles directly on the document to prevent flashes */}
         <title>Aptos App</title>
+        {/** Load font styles directly on the document to prevent flashes */}
         <link href="/fonts/fonts.css" rel="stylesheet" />
-        <link href="/base.css" rel="stylesheet" />
       </Head>
 
       <WalletProvider>
