@@ -1,25 +1,8 @@
 /** @jsxImportSource theme-ui */
-import { useWallet } from "@manahippo/aptos-wallet-adapter"
-import Head from "next/head"
-import { Button, Heading, Input } from "theme-ui"
+import { WalletManager } from "@/components/WalletManager"
+import { Heading, Input } from "theme-ui"
 
 export default function Home() {
-  const {
-    autoConnect,
-    connect,
-    disconnect,
-    account,
-    wallets,
-    signAndSubmitTransaction,
-    connecting,
-    connected,
-    disconnecting,
-    wallet,
-    signMessage,
-    signTransaction,
-  } = useWallet()
-
-  const currentWallet = wallet ? wallet : wallets[1]
   return (
     <>
       <main
@@ -36,19 +19,7 @@ export default function Home() {
         <Heading mb=".8rem" variant="heading1">
           Themed Aptos App
         </Heading>
-        <Button
-          onClick={() => {
-            connect(currentWallet.adapter.name)
-          }}
-          id={currentWallet.adapter.name.split(" ").join("_")}
-          key={currentWallet.adapter.name}
-          className="connect-btn"
-        >
-          {currentWallet.adapter.name}
-        </Button>
-        <form>
-          <Input name="" />
-        </form>
+        <WalletManager />
       </main>
     </>
   )
